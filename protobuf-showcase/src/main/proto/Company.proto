@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+package de.frvabe.showcase.protobuf.example.company;
+
+/*
+ * A company
+ */
+message Company {
+  // the company identifier
+  string id = 1;
+  // the company name
+  string name = 2;
+  // the member of the company
+  Person employees = 3;
+}
+
+/*
+ * A person.
+ */
+message Person {
+
+  // the persons identifier
+  string id = 1;
+  // the persons name
+  string name = 2;
+  // the persons email
+  string email = 3;
+  // day of birth
+  google.protobuf.Timestamp birthday = 4;
+
+  /*
+   * Enumeration of possible phone types.
+   */
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  /*
+   * A phone number.
+   */
+  message PhoneNumber {
+    // the number
+    string number = 1;
+    // the type
+    PhoneType type = 2;
+  }
+  // list of phone numbers that belong to the person
+
+  repeated PhoneNumber phones = 5;
+
+}
+

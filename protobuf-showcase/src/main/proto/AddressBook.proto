@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "Company.proto";
+
+option java_multiple_files = true;
+package de.frvabe.showcase.protobuf.example.company;
+
+/*
+ * The address book which contains all persons.
+ */
+message AddressBook {
+  // the list of people in the address book
+  repeated de.frvabe.showcase.protobuf.example.company.Person people = 1;
+}
